@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;    
+    display: flex;
+    background-color: rgb(54,189,189); 
+}
+.memory-game {
+    height: 640px;
+    width: 66%;
+    margin-left: 50px;
+    margin-top: 25px;
+    margin-right: 50px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+.card {
+    height: calc(33.333% - 10px);
+    width: calc(25% - 10px);
+    margin: 5px;
+    position: relative;
+    box-shadow: 1px 1px 1px rgba(1,1,1,.3);
+    cursor: pointer;
+    transform: scale(1);
+    transform-style: preserve-3d; /* evita o elemento achatado  no plano */
+    transition: transform 0.9s;
+}
+.card:active {
+    transform: scale(0.97);
+    transition: transform .3s;
+}
+.card-front ,
+ .card-back{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background: #ffffff;
+    backface-visibility: hidden; /* retira a parte visivel quando clicar*/
+}
+
+.card-front {
+    transform: rotateY(180deg);
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+}
+.points{
+    width: 20%;
+    height: 30%;
+    margin-top: 250px;
+    margin-right: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;    
+    color:rgb(180, 52, 52)
+}
+.points p {
+    margin-top:20px;
+}
+.game-over {
+    color: rgb(180, 52, 52);
+}
